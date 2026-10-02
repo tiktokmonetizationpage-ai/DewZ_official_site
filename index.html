@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Who's DewZ Official</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                 "Segoe UI", sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 20% 20%, #007aff55, transparent 30%),
+        radial-gradient(circle at 80% 70%, #004cff44, transparent 30%),
+        linear-gradient(135deg, #020817, #071a38, #000000);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Animated blue background */
+body::before {
+    content: "";
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    background: #007aff;
+    filter: blur(180px);
+    opacity: 0.18;
+    top: -150px;
+    left: -150px;
+    z-index: -1;
+    animation: glow 8s infinite alternate;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: #00aaff;
+    filter: blur(180px);
+    opacity: 0.12;
+    bottom: -150px;
+    right: -150px;
+    z-index: -1;
+    animation: glow 10s infinite alternate-reverse;
+}
+
+@keyframes glow {
+    from {
+        transform: translate(0,0) scale(1);
+    }
+    to {
+        transform: translate(80px,60px) scale(1.2);
+    }
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 1100px;
+    padding: 14px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logo span {
+    color: #4da3ff;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-buttons button {
+    border: none;
+    color: white;
+    background: rgba(255,255,255,0.08);
+    padding: 9px 14px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-buttons button:hover {
+    background: #007aff;
+    transform: translateY(-2px);
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 70px;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(20px);
+    color: #8bc7ff;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 90px);
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,#fff,#55aaff,#007aff,#fff);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientMove 5s infinite linear;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0%; }
+    100% { background-position: 300%; }
+}
+
+.hero p {
+    color: #b8c7dc;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+/* MAIN BUTTONS */
+.main-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.glass-btn {
+    padding: 15px 25px;
+    border-radius: 20px;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.35s;
+}
+
+.glass-btn:hover {
+    background: rgba(0,122,255,0.65);
+    border-color: #4da3ff;
+    box-shadow: 0 0 30px #007aff66;
+    transform: translateY(-5px);
+}
+
+/* SECTIONS */
+section {
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    text-align: center;
+    color: #9eabc0;
+    margin-bottom: 40px;
+}
+
+/* GLASS CARD */
+.card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 30px;
+    padding: 35px;
+    box-shadow: 0 20px 70px rgba(0,0,0,0.25);
+}
+
+/* FONT */
+.font-card {
+    text-align: center;
+}
+
+.drive-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: white;
+    background: #007aff;
+    border-radius: 18px;
+    transition: 0.3s;
+    box-shadow: 0 0 30px #007aff55;
+}
+
+.drive-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 45px #007aff99;
+}
+
+/* HASHTAGS */
+.hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.tag {
+    padding: 12px 18px;
+    border-radius: 20px;
+    background: rgba(0,122,255,0.15);
+    border: 1px solid rgba(0,122,255,0.4);
+    color: #8bc7ff;
+    transition: 0.3s;
+}
+
+.tag:hover {
+    background: #007aff;
+    color: white;
+    transform: translateY(-4px);
+}
+
+/* PHOTO UPLOAD */
+.upload-area {
+    text-align: center;
+}
+
+.upload-box {
+    border: 2px dashed rgba(255,255,255,0.25);
+    border-radius: 25px;
+    padding: 45px 20px;
+    transition: 0.3s;
+}
+
+.upload-box:hover {
+    border-color: #007aff;
+    background: rgba(0,122,255,0.08);
+}
+
+.plus {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto 20px;
+
+    font-size: 40px;
+    background: #007aff;
+    box-shadow: 0 0 35px #007aff77;
+}
+
+.upload-label {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 17px;
+    background: rgba(255,255,255,0.1);
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.upload-label:hover {
+    background: #007aff;
+}
+
+#photoInput {
+    display: none;
+}
+
+/* PHOTO GRID */
+.photo-grid {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.photo-item img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.download-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    text-decoration: none;
+    color: white;
+    background: rgba(0,0,0,0.65);
+    padding: 9px 13px;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+}
+
+.download-btn:hover {
+    background: #007aff;
+}
+
+/* WHATSAPP */
+.more-details {
+    text-align: center;
+}
+
+.whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: white;
+
+    padding: 15px 25px;
+    margin-top: 20px;
+
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+
+    backdrop-filter: blur(20px);
+    transition: 0.3s;
+}
+
+.whatsapp:hover {
+    background: #128c7e;
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(18,140,126,0.5);
+}
+
+.whatsapp-icon {
+    font-size: 25px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    color: #718096;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 12px;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .hero {
+        padding-top: 130px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .main-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .glass-btn {
+        width: 100%;
+    }
+
+    section {
+        padding: 70px 15px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .card {
+        padding: 22px;
+        border-radius: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">
+        Who's <span>DewZ</span>
+    </div>
+
+    <div class="nav-buttons">
+        <button onclick="scrollToSection('fonts')">Font</button>
+        <button onclick="scrollToSection('hashtags')">Viral Tips</button>
+        <button onclick="scrollToSection('background')">Background</button>
+    </div>
+</nav>
+
+
+<!-- HOME -->
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✦ Official Website
+        </div>
+
+        <h1>
+            Who's <span>DewZ</span>
+        </h1>
+
+        <p>
+            Fonts, viral hashtags and amazing background photos
+            — everything you need in one place.
+        </p>
+
+        <div class="main-buttons">
+
+            <button class="glass-btn"
+                    onclick="scrollToSection('fonts')">
+                ✦ Fonts
+            </button>
+
+            <button class="glass-btn"
+                    onclick="scrollToSection('hashtags')">
+                # Viral Hashtags
+            </button>
+
+            <button class="glass-btn"
+                    onclick="scrollToSection('background')">
+                ＋ Background Photo
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- FONT SECTION -->
+<section id="fonts">
+
+    <h2 class="section-title">
+        Fonts
+    </h2>
+
+    <p class="section-description">
+        Download / view the fonts collection.
+    </p>
+
+    <div class="card font-card">
+
+        <h3>
+            ✦ Who's DewZ Font Collection
+        </h3>
+
+        <p style="color:#9eabc0;margin-top:12px;">
+            Open the font collection from Google Drive.
+        </p>
+
+        <a
+          class="drive-btn"
+          href="https://drive.google.com/drive/folders/1enDyQfeiAEu6l9kdFW_ZeSzSLj-jJ3Jf"
+          target="_blank"
+          rel="noopener">
+            Open Fonts →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- HASHTAGS -->
+<section id="hashtags">
+
+    <h2 class="section-title">
+        Viral Hashtags
+    </h2>
+
+    <p class="section-description">
+        Most popular tags
+    </p>
+
+    <div class="card">
+
+        <div class="hashtags">
+
+            <div class="tag">#foryou</div>
+            <div class="tag">#foryoupage</div>
+            <div class="tag">#popular</div>
+            <div class="tag">#trending</div>
+            <div class="tag">#viral</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BACKGROUND PHOTO -->
+<section id="background">
+
+    <h2 class="section-title">
+        Background Photos
+    </h2>
+
+    <p class="section-description">
+        Add your favorite background photo.
+    </p>
+
+    <div class="card upload-area">
+
+        <div class="upload-box">
+
+            <div class="plus">
+                +
+            </div>
+
+            <h3>
+                Add Background Photo
+            </h3>
+
+            <p style="color:#9eabc0;margin-top:10px;">
+                Select a photo from your phone.
+            </p>
+
+            <label class="upload-label" for="photoInput">
+                ＋ Add Photo
+            </label>
+
+            <input
+                type="file"
+                id="photoInput"
+                accept="image/*"
+            >
+
+        </div>
+
+        <div id="photoGrid" class="photo-grid"></div>
+
+    </div>
+
+</section>
+
+
+<!-- MORE DETAILS -->
+<section>
+
+    <div class="card more-details">
+
+        <h2>
+            More Details
+        </h2>
+
+        <p style="color:#9eabc0;margin-top:10px;">
+            Contact us directly on WhatsApp.
+        </p>
+
+        <a
+          class="whatsapp"
+          href="https://wa.me/9476470434"
+          target="_blank"
+          rel="noopener">
+
+            <span class="whatsapp-icon">☘</span>
+            <span>WhatsApp: 076 471 0434</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 Who's DewZ Official. All Rights Reserved.
+</footer>
+
+
+<script>
+
+/* Smooth blue-style section navigation */
+function scrollToSection(id) {
+
+    const section = document.getElementById(id);
+
+    if (!section) return;
+
+    section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+/* Photo upload */
+const photoInput = document.getElementById("photoInput");
+const photoGrid = document.getElementById("photoGrid");
+
+photoInput.addEventListener("change", function () {
+
+    const files = Array.from(this.files);
+
+    files.forEach(file => {
+
+        if (!file.type.startsWith("image/")) {
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+
+            const item = document.createElement("div");
+            item.className = "photo-item";
+
+            const img = document.createElement("img");
+            img.src = event.target.result;
+
+            const download = document.createElement("a");
+            download.className = "download-btn";
+            download.href = event.target.result;
+            download.download = file.name;
+            download.innerHTML = "↓ Download";
+
+            item.appendChild(img);
+            item.appendChild(download);
+
+            photoGrid.appendChild(item);
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+    /* Allow selecting the same file again */
+    this.value = "";
+});
+
+</script>
+
+</body>
+</html>
